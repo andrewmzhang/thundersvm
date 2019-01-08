@@ -75,6 +75,9 @@ public:
     //return sv
     const DataSet::node2d &svs() const;
 
+	//return svi
+	const vector<int> get_svi() const;
+
     //return n_sv
     const SyncArray<int> &get_n_sv() const;
 
@@ -135,6 +138,10 @@ protected:
      */
 
     DataSet::node2d sv;
+	///the indicies of the support vectors
+	vector<int> svi;
+
+
     ///the number of support vectors for each class
     SyncArray<int> n_sv;
 

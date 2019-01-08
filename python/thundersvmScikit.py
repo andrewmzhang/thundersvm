@@ -108,6 +108,11 @@ class SvmModel(ThundersvmBase):
             print ("Training failed!")
             return
         self.n_sv = thundersvm.n_sv(c_void_p(self.model))
+
+        support_ = (c_int * (self.n_sv))()
+        thundersvm.get_svi(support_, c_void_p(self.model))
+        self.support_ = np.array([support_[index] for index in range(0, self.n_sv)]).astype(int)
+
         csr_row = (c_int * (self.n_sv + 1))()
         csr_col = (c_int * (self.n_sv * self.n_features))()
         csr_data = (c_float * (self.n_sv * self.n_features))()
