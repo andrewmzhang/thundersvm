@@ -297,6 +297,10 @@ const DataSet::node2d &SvmModel::svs() const {
     return sv;
 }
 
+const vector<int> SvmModel::get_svi() const {
+    return svi;
+}
+
 const SyncArray<int> &SvmModel::get_n_sv() const {
     return n_sv;
 }

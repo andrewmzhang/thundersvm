@@ -282,6 +282,14 @@ extern "C" {
         return ;
     }
 
+	void get_svi(int* idx, SvmModel* model) {
+		vector<int> indexes = model->get_svi();
+		for (int i = 0; i < indexes.size(); i++)
+			idx[i] = indexes[i];
+
+
+    }
+
     void get_support_classes(int* n_support, int n_class, SvmModel* model){
         SyncArray<int> n_sv(n_class);
         n_sv.copy_from(model->get_n_sv());
